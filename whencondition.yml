@@ -1,0 +1,25 @@
+---
+- name: When condition
+  hosts: all
+  become: true
+  tasks:
+     - name: install httpd in redhat
+       yum:
+         name: httpd
+         state: installed
+       when: ansible_os_family == "RedHat"    
+     - name: start the httpd service in redhat
+       service: 
+         name: httpd
+         state: started
+       when: ansible_os_family == "RedHati"    
+     - name: install httpd in centos
+       apt:
+         name: apache2
+         state: present
+       when: ansible_os_family == "Debian"
+     - name: start the httpd service in centos
+       service:
+         name: apache2
+         state: started
+       when: ansible_os_family == "Debian"

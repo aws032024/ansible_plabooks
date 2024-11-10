@@ -1,0 +1,10 @@
+---
+- name: from external file
+  hosts: all
+  become: true
+  vars_files: 
+  - user.yml
+  tasks:
+  - name: creating user {{user}}
+    user: 
+     name: "{{user}}"

@@ -1,0 +1,12 @@
+---
+ - name: Copy the file to the server
+   hosts: all
+   become: true
+   tasks:
+     - name: copy the file
+       copy:
+         src: /home/ansadmin/index.txt
+         dest: /home/ansadmin/index.txt
+         owner: ansadmin
+         group: ansadmin
+         mode: 0644  

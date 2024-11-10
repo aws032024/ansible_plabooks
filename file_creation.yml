@@ -1,0 +1,9 @@
+---
+- name: THis is for file creation
+  hosts: all
+  become: true
+  tasks:
+    - name: file creation
+      file:
+        path: /home/ansadmin/demofile
+        state: absent
